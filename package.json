@@ -1,0 +1,21 @@
+{
+  "name": "archetype-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.sb.cl/jmsepulveda/archetype-nodejs.git"
+  },
+  "keywords": [
+    "archetype",
+    "nodejs"
+  ],
+  "author": "Jose Miguel Sepulveda <jozheprog@gmail.com>",
+  "license": "ISC"
+}
