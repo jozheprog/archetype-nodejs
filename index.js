@@ -23,14 +23,11 @@ app.use(bodyParser.json());
 routes(app);
 
 const application = async () => {
-    console.log('process.env.ND_DB_ORA_EXAMPLE_POOL_MAX :', process.env.ND_DB_ORA_EXAMPLE_POOL_MAX);
     const oraExampleConnection = await ora.createPool(db.ora.example);
 
     if (!oraExampleConnection) {
-        console.log("Algo sucedio");
+        console.log("Favor verifique las variables de ambiente para el esquema EXAMPLE");
         return false;
-    } else {
-        console.log("Conectado a Example");
     }
 
     // Llama aplicacion y levanta el puerto
