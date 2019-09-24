@@ -68,6 +68,12 @@ ND_DB_ORA_EXAMPLE_POOL_TIMEOUT=30000
    npm run dev
    ```
 
+2. Ejecutar pruebas en caso de haber modificado algo
+
+   ```bash
+   npm test
+   ```
+
 2. Abrir browser en <http://localhost:8080/saludo?name=Yo>
 
 ## Configuracion YAML Openshift
