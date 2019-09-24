@@ -6,13 +6,12 @@
 const express = require('express');
 const router = express.Router();
 
+// Llamada dependencia ficheros
+const greetsController = require('../controller/greetController');
+
 /**
  * Llamada get
  */
-router.get('/', (req, res, next) => {
-    res.json({
-        "Saludo": "Hola!"
-    });
-});
+router.get('/', (req, res, next) => greetsController.greetByName(req, res, next));
 
 module.exports = router;

@@ -3,5 +3,5 @@
  */
 
 module.exports = app => {
-    app.use('/saludo', require('./saludoRouter'));
+    app.use('/saludo', require('./greetRouter'));
 }
