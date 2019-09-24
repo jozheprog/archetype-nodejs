@@ -7,7 +7,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 // Llama dependencia de archivo
-const { server } = require('./config');
+const { server, db } = require('./config');
+const ora = require('./data/db/oracle');
 
 // Instancia aplicacion
 const app = express();
@@ -21,7 +22,21 @@ app.use(bodyParser.json());
 // Se desliga responsabilidad a routes quien se encarga de enrutar los endpoint
 routes(app);
 
-// Llama aplicacion y levanta el puerto
-app.listen(server.port, () => {
-    console.log(`Aplicacion escuchando en puerto ${server.port}`);
-});
+const application = async () => {
+    console.log('process.env.ND_DB_ORA_EXAMPLE_POOL_MAX :', process.env.ND_DB_ORA_EXAMPLE_POOL_MAX);
+    const oraExampleConnection = await ora.createPool(db.ora.example);
+
+    if (!oraExampleConnection) {
+        console.log("Algo sucedio");
+        return false;
+    } else {
+        console.log("Conectado a Example");
+    }
+
+    // Llama aplicacion y levanta el puerto
+    app.listen(server.port, async () => {
+        console.log(`Aplicacion escuchando en puerto ${server.port}`);
+    });
+}
+
+application();
